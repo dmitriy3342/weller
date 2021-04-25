@@ -7,3 +7,5 @@
 
 
 ## Open in browser https://dmitriy3342.github.io/weller/index.html
+
+## Android app https://github.com/dmitriy3342/weller/releases
