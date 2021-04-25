@@ -3,6 +3,8 @@ extends Node2D
 var level = 0
 var game:Node2D = null
 
+var audio:AudioStreamPlayer2D = null
+var audio_delay = 0
 var levels = [
 	{
 		'resistance':1,
@@ -59,7 +61,7 @@ func start_level():
 	get_tree().paused = true
 	G.sub('start_level')
 	
-	
+
 
 func custom_process(delta):
 	if helix.position.y > helix_touch_water_y:
@@ -77,6 +79,14 @@ func custom_process(delta):
 	
 	pointer.position.x = pointer_start_x + pointer_size_x * velocity
 	
+	
+	if velocity>0:
+		audio_delay+=delta
+		if not audio.playing and audio_delay>=(1-velocity)*0.2: 
+			audio.play()
+			audio_delay = 0
+		
+		
 		
 	var hole_size_y = helix.position.y-helix_touch_ground_y
 	if hole_size_y > 0 and hole_size_y < hole_max_size_y:
@@ -84,8 +94,10 @@ func custom_process(delta):
 		hole.scale.y = hole_size_y
 		hole.position.y = hole_start_y + hole_size_y/2
 		
+		
 		if pointer.position.x < pointer_end_x*pointer_min_percent or \
 		   pointer.position.x > pointer_end_x*pointer_max_percent:
+			
 			get_tree().paused = true
 			G.sub('fail_level')
 			

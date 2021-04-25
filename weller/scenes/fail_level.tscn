@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/fail_level.gd" type="Script" id=2]
+[ext_resource path="res://audio/fail_motor_1.wav" type="AudioStream" id=3]
 
 [node name="StartLevel" type="Node2D"]
 pause_mode = 2
@@ -37,5 +38,9 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioFail" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 550.921, 1025.56 )
+stream = ExtResource( 3 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

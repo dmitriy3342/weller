@@ -7,6 +7,7 @@ func _ready():
 	G.hole = $HelixGroup/Hole
 	G.helix_top = $HelixGroup/HelixTop
 	G.pointer = $Pointer
+	G.audio = $Audio
 	G.start_level()
 
 
