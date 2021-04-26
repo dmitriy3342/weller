@@ -3,6 +3,8 @@
 #### Game created for Ludum Dare #48 Compo 
 #### Theme: Deeper and deeper
 
+#### I wrote this project on Godot Engine!
+
 ### This clicker!
 ### You need don't go overboard!
 ### Try to keep a marker in center!
